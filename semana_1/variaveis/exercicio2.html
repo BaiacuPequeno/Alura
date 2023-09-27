@@ -1,0 +1,29 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        var nome, telefone, profissao, salario, convenio
+        var confirma = new Boolean()
+
+        nome = prompt("Seu nome: ")
+        telefone = prompt("Seu telefone (com ddd): ")
+        profissao = prompt("Qual sua profissão? ")
+        salario = prompt("Qual seu salário? ")
+        convenio = prompt("Tens convênio? (S/N): ")
+
+        while (convenio != "S" && convenio != "s" && convenio != "N" && convenio != "n") {
+            alert("Informação inválida... Digite novamente: ")
+            convenio = prompt("Você é brasileiro? (S/N): ")
+        }
+
+        if(convenio == "S" || convenio == "s") {
+            confirma = true
+        } else if(convenio == "N" || convenio == "n") {
+            confirma = false
+        }
+
+
+        console.log("Dados da pessoa/individuo \nNome: " + nome + "\nTelefone/Contato: " + telefone + "\nContém convênio: " + confirma + "\nProfissão: " + profissao + "\nSalário: " + salario)
+    </script>
+</html>

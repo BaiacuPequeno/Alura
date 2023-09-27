@@ -1,0 +1,27 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        let escolha
+        let escolha_D
+
+        escolha = prompt("Senha incorreta. Seu cartão foi bloqueado. Se deseja ir a uma agência, digite 'A' ou se deseja desbloquear com sua chave de segurança, digite 'D'").toLowerCase()
+
+        while(escolha != "a" && escolha != "d") {
+            escolha = prompt("Opção inválida! Digite novamente...\n'A' para ir para a agencia, 'D' para tentar a chave de segurança.")
+        }
+
+        if(escolha == "a") {
+            alert("Nossa agencia mais perto fica na cidade X, ficaremos felizes em te ajudar presencialmente:)")
+        } else if(escolha == "d") {
+            escolha_D = prompt("Um email de verificação foi enviado para você, digite o código para que possamos confirmar que é você: ")
+
+            if(escolha_D == 9999) {
+                alert("Código correto!\nUm email foi enviado a você para redefinir a senha.\nTenha um bom dia:)")
+            } else {
+                alert("Código inválido.\nCaso você seja o dono da conta, considere ir na agencia mais próxima!")
+            }
+        }
+    </script>
+</html>

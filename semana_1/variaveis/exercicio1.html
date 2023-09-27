@@ -1,0 +1,26 @@
+<html>
+        <body>
+        </body>
+    <script>
+        var nome, idade, alturaEmMetro, pessoaBrasileira
+        var confirmar = new Boolean()
+        nome = prompt("Digite seu nome")
+        idade = prompt("Qual sua idade: ")
+        alturaEmMetro = prompt("Sua altura: ")
+        pessoaBrasileira = prompt("Você é brasileiro? (S/N): ")
+
+        while (pessoaBrasileira != "S" && pessoaBrasileira != "s" && pessoaBrasileira != "N" && pessoaBrasileira != "n") {
+            alert("Informação inválida... Digite novamente: ")
+            pessoaBrasileira = prompt("Você é brasileiro? (S/N): ")
+        }
+
+        if (pessoaBrasileira === "S" || pessoaBrasileira === "s") {
+            confirmar = true;
+        } else if (pessoaBrasileira === "N" || pessoaBrasileira === "n") {
+            confirmar = false;
+        }
+
+        alert("nome: " + nome + " Idade: " + idade + " Altura: " + alturaEmMetro + " Brasileiro: " + confirmar)
+        console.log("nome: " + nome + " Idade: " + idade + " Altura: " + alturaEmMetro + " Brasileiro: " + confirmar)
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        let aluno, materia, nota, soma = 0, media = 0
+        let j = 1
+        let notas = []
+
+        aluno = prompt("Digite o nome do aluno: ")
+        materia = prompt("Digite a materia desejada: ")
+
+        for(i=0; i<2; i++) {
+            j+=i
+            nota = prompt("Digite a nota do aluno na " + j + " atividade")
+            nota = parseFloat(nota)
+            notas.push(nota)
+            soma = soma + nota
+            if(i==1) {
+                media = soma/j
+            }
+        }
+
+
+        if(media >= 7) {
+            alert("O aluno " + aluno + " foi aprovado na materia " + materia + " e teve média " + media)
+        } else {
+            alert("O aluno " + aluno + " foi reprovado na materia " + materia + " e teve média " + media)
+        }
+
+        
+    </script>
+</html>

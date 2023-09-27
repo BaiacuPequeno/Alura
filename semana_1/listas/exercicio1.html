@@ -1,0 +1,25 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        var nome, idade, cpf, altura
+        var maior_Idade = new Boolean()
+        var pessoa = []
+
+        nome = prompt("Digite seu nome: ")
+        idade = prompt("Digite sua idade: ")
+        cpf = prompt("Digite seu cpf: ")
+        altura = prompt("Digite sua altura: ")
+
+        if(idade >= 18) {
+            maior_Idade = true
+        } else if (idade < 18) {
+            maior_Idade = false
+        }
+        
+        pessoa.push(nome, idade, cpf, altura, maior_Idade)
+
+        console.log(pessoa)
+    </script>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+
+        let notas = []
+        let add
+        let soma = 0
+        let result = 0
+        let j
+        let sair = false
+
+        while(sair === false) {
+            add = prompt("Adicione a nota do aluno: ")
+
+            if(add === "SAIR" || add === "sair") {
+                sair = true
+
+                for(i=0; i<notas.length; i++) {
+                    soma += notas[i]
+
+                    if(i+1 == notas.length) {
+                        j = i + 1
+                        result = soma/j
+                    }
+                }
+
+                alert("A média da turma é: " + result)
+            } else {
+                add = parseFloat(add)
+                notas.push(add)
+            }
+        }
+        console.log(notas, notas.length)
+
+    </script>
+</html>

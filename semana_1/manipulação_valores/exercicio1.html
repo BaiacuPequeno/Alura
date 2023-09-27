@@ -1,0 +1,75 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        alert("O exercicio 4 pode ser visto na coluna 'Lucro p/Cidade'")
+        // Clientes por cidade
+        let BH = 23
+        let SP = 12
+        let BA = 11
+        let MS = 10
+        let PR = 8
+
+        // Faturamento por cidade
+        let BH_f = 2950
+        let SP_f = 3950
+        let BA_f = 1329
+        let MS_f = 2412
+        let PR_f = 626
+
+        // Fretes (exercicio 4)
+        let freteSP = SP_f - (SP * 9)
+        let frete_geral
+
+        // função para calcular o frete geral
+        function frete(a, b) {
+            frete_geral = a * 14
+            return b - frete_geral
+        }
+
+        document.write("Cidade ㅤㅤㅤㅤㅤㅤ Quantidade de Clientes ㅤㅤㅤㅤㅤㅤ Faturamento ㅤㅤㅤㅤㅤㅤ Lucro p/Cidade")
+        document.write("<br>Belo Horizonte ㅤㅤㅤㅤ"+BH+" ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤR$ "+BH_f+" ㅤㅤㅤㅤㅤㅤㅤㅤR$ " + frete(BH, BH_f))
+        document.write("<br>São Pauloㅤㅤㅤㅤㅤㅤ"+SP+" ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ R$ "+SP_f+"ㅤㅤㅤㅤㅤㅤㅤㅤ R$ " + freteSP)
+        document.write("<br>Salvador ㅤㅤㅤㅤㅤㅤ "+BA+"ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ R$ "+BA_f+" ㅤㅤㅤㅤㅤㅤㅤㅤ R$ " + frete(BA, BA_f))
+        document.write("<br>Campo grande ㅤㅤㅤㅤ"+MS+" ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤR$ "+MS_f+" ㅤㅤㅤㅤㅤㅤㅤㅤ R$ " + frete(MS, MS_f))
+        document.write("<br>Curitibaㅤㅤㅤㅤㅤㅤㅤ "+PR+"ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ  R$ "+PR_f+" ㅤㅤㅤㅤㅤㅤㅤㅤㅤR$ " + frete(PR, PR_f))
+
+
+        // Soma de clientes (exercicio 1)
+        let soma_c
+        document.write("<br><br>Exercicio 1")
+        soma_c = BH + SP + BA + MS + PR
+        document.write("<br>Nas capitais de BH, SP, BA, MS e PR, Jéssica possui " + soma_c + " clientes")
+
+
+        // Faturamento médio por cidade (exercicio 2)
+        let media
+        document.write("<br><br>Exercicio 2")
+        document.write("<br>Faturamento médio por cliente:")
+
+        media = BH_f / BH
+        document.write("<br>Belo Horizonte: R$ " + Math.round(media))
+
+        media = SP_f / SP
+        document.write("<br>São Paulo: R$ " + Math.round(media))
+
+        media = BA_f / BA
+        document.write("<br>Salvador: R$ " + Math.round(media))
+
+        media = MS_f / MS
+        document.write("<br>Campo Grande: R$ " + Math.round(media))
+
+        media = PR_f / PR
+        document.write("<br>Curitiba: R$ " + Math.round(media))
+
+
+        // Faturamento total das 5 cidades (exercicio 3)
+        let soma_f, media_total
+        document.write("<br><br>Exercicio 3")
+        soma_f = BH_f + SP_f + BA_f + MS_f + PR_f
+        media_total = soma_f / soma_c
+
+        document.write("<br>Faturamento médio por cliente nas cinco cidades onde Jéssica mais tem clientes ativos é de: R$ " + Math.round(media_total))        
+    </script>
+</html>

@@ -1,0 +1,59 @@
+<html>
+
+<body>
+</body>
+
+<script>
+
+    const taxaDolarNeozelandes = 3.25;
+    const taxaBahtTailandes = 0.15;
+    const taxaColonCostarriquenho = 0.0089;
+
+    // atividade 1
+    function converterMoeda(valor, taxaDeCambio) {
+        return valor * taxaDeCambio;
+    }
+
+    // atividade 2
+    let Nome_cliente = prompt("Qual seu nome: ")
+    let Destino = parseInt(prompt("Qual seu destino?\n1- Nova Zelândia\n2- Tailândia\n3- Costa Rica"))
+    let valor_Passagem = parseFloat(prompt("Digite o valor de sua passagem: "))
+    let diaria = parseFloat(prompt("Digite o valor da diária: "))
+    let guia = parseFloat(prompt("Digite o valor do guia local: "))
+    let dias = parseInt(prompt("Quantos dias você vai ficar lá?"))
+
+    let valor_fixo = (diaria + guia) * dias
+    console.log(valor_fixo)
+
+
+    // atividade 3
+    let email
+    switch (Destino) {
+        case 1: 
+            email = "* Nova Zelânia *" +
+            "Passagem: R$ " + converterMoeda(valor_Passagem, taxaDolarNeozelandes) +
+            "Acomodação " + dias + " dias: R$ " + converterMoeda(diaria, taxaDolarNeozelandes) +
+            "O guia local custará: R$ " + converterMoeda(guia, taxaDolarNeozelandes)
+            break
+        case 2: 
+            email = "* Tailândia *" +
+            "Passagem: R$ " + converterMoeda(valor_Passagem, taxaBahtTailandes) +
+            "Acomodação " + dias + " dias: R$ " + converterMoeda(diaria, taxaBahtTailandes) +
+            "O guia local custará: R$ " + converterMoeda(guia, taxaBahtTailandes)
+            break
+        case 3: 
+            email = "* Costa Rica *" +
+            "Passagem: R$ " + converterMoeda(valor_Passagem, taxaColonCostarriquenho) +
+            "Acomodação " + dias + " dias: R$ " + converterMoeda(diaria, taxaColonCostarriquenho) +
+            "O guia local custará: R$ " + converterMoeda(guia, taxaColonCostarriquenho)
+            break
+        default:
+            email = "Informação errada......\nAperte F5 e reinicia o processo"
+            break
+    }
+
+    alert(email)
+
+
+</script>
+</html>

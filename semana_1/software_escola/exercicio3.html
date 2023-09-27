@@ -1,0 +1,30 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        let alunos = []
+        let notas = []
+        let add
+        let j = 1
+
+        alert("Digite as notas de português dos alunos para comparação.")
+
+        for(i=0; i<3; i++) {
+            alunos.push(prompt("Digite o nome do aluno " + j))
+            j+=1
+            notas.push(prompt("Digite a média do aluno " + alunos[i]))
+        }
+
+        if(notas[0] == notas[1] && notas[1] == notas[2]) {
+            alert("Por questões de empate, agora a disciplina comparada será matemática.")
+
+            for(i=0; i<3; i++) {
+                notas.push(prompt("Digite a média do aluno " + alunos[i]))
+            }
+        }
+
+        console.log(alunos)
+        console.log(notas)
+    </script>
+</html>

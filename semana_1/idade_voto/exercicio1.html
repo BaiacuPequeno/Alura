@@ -1,0 +1,19 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        let idade
+
+        alert("Você pode votar? Você deve votar?\nDescubra agora!!!")
+        idade = prompt("Digite sua idade: ")
+
+        if(idade >= 18 && idade < 70) {
+            alert("Você é obrigado a votar!\nAtenção nas épocas de eleição.")
+        } else if (idade == 16 || idade == 17 || idade >= 70) {
+            alert("Você não é obrigado a votar!\nMas sinta-se livre caso queira.")
+        } else if (idade < 16) {
+            alert("Você não pode votar:(\nMas nao desanime. Logo mais estará no meio!)")
+        }
+    </script>
+</html>
