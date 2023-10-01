@@ -1,0 +1,96 @@
+<html>
+
+<body>
+</body>
+
+<script>
+    // o exercicio 4 está dividido dentre o codigo. vou deixar um * a cada vez que ele aparecer
+    // exercicio 3
+    let escolha, meses, FV
+    const nome = "Miguel"
+
+    alert(`Olá ${nome}, vejo que quer investir conosco.`)
+    let investimento = parseFloat(prompt(`Coloque aqui o valor desejado para o investimento: `))
+    meses = parseInt(prompt("E quantos meses deseja investir? "))
+
+
+    if (investimento < 1) {
+        alert("Infelizmente não podemos fazer nada com menos de R$ 1,00\nPeço para que volte outro dia para continuarmos com isso.")
+    } else if (investimento >= 1 && investimento < 100) {
+        alert("Temos aqui para você, disponível o plano Start.\nQue tem o rendimento de 1,2% ao mês e pode ser retirado a qualquer momento!")
+
+        while (escolha != "s" && escolha != "n") {
+            escolha = prompt("Deseja prosseguir com esse plano? (S/N)").toLowerCase()
+            if (escolha === "s") {
+                alert("Ótima escolha!!!")
+                // *
+                FV = investimento * Math.pow((1 + 1.2), meses)
+                alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+            } else if (escolha === "n") {
+                alert("Sentimos muito que nosso plano não o agradou :(")
+            }
+        }
+    } else if (investimento >= 100 && investimento < 500) {
+        alert("Temos aqui para você, disponível o plano Plus.\nQue tem o rendimento de 1,78% ao mês e pode ser retirado após 30 dias!" +
+            "\nTambém temos para você o plano Start.\nQue tem o rendimento de 1,2% ao mês e pode ser retirado a qualquer momento!")
+        escolha = parseInt(prompt("Quer escolher um dos planos?" +
+            "\n1- Plano Start\n2- Plano Plus\n3- Não quero nenhum dos planos"))
+
+        switch (escolha) {
+            case 1: alert("Ótima escolha!!!")
+                // *
+                FV = investimento * Math.pow((1 + 1.2), meses)
+                alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+                break;
+            case 2: alert("Ótima escolha!!!")
+                // *
+                FV = investimento * Math.pow((1 + 1.78), meses)
+                alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+                break;
+            case 3: alert("Sentimos muito que nenhum de nossos planos não o agradou :(")
+                break;
+        }
+    } else if (investimento > 500) {
+        if (meses >= 6) {
+            alert("Temos aqui para você, disponível o plano Pro, Plus e Start.\nO plano Pro tem rendimento dependendo da quantidade de tempo que você for deixar o dinheiro no plano!\nSendo 2,6% ao mês caso o período seja menor do que 1 ano. E 4,4% ao mês caso o período seja igual ou ultrapasse 1 ano.\nE o dinheiro só pode ser retirado após o tempo estipulado.")
+            alert("Também temos para você o plano Plus.\nQue tem o rendimento de 1,78% ao mês, e pode ser retirado após 30 dias!")
+            alert("E também temos o plano Start.\nQue tem o rendimento de 1,2% ao mês, e pode ser retirado a qualquer momento!")
+
+            escolha = parseInt(prompt("Qual dos planos mais o agrada?" +
+                "\n1- Plano Start\n2- Plano Plus\n3- Plano Pro\n4- Não quero nenhum dos planos"))
+
+            switch (escolha) {
+                case 1: alert("Ótima escolha!!!")
+                    // *
+                    FV = investimento * Math.pow((1 + 1.2), meses)
+                    alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+                    break;
+                case 2: alert("Ótima escolha!!!")
+                    // *
+                    FV = investimento * Math.pow((1 + 1.78), meses)
+                    alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+                    break;
+                case 3: alert("Ótima escolha!!!")
+                    alert(`Vejo que você irá investir por ${meses} meses.`)
+                    if (meses >= 6 && meses < 12) {
+                        alert(`E já que ira deixar por ${meses} meses, seu lucro será de 2,6% ao mês!`)
+                        // *
+                        FV = investimento * Math.pow((1 + 2.6), meses)
+                        alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+                    } else if (meses > 12) {
+                        alert(`E já que ira deixar por ${meses} meses, seu lucro será de 4,4% ao mês!`)
+                        // *
+                        FV = investimento * Math.pow((1 + 4.4), meses)
+                        alert(`Por escolher este plano, você, investindo R$ ${investimento} reais, terá retorno de R$ ${FV} caso deixe todos os ${meses} aqui.`)
+                    }
+                    break;
+                case 4: alert("Sentimos muito que nenhum de nossos planos não o agradou :(")
+                    break;
+            }
+        } else {
+            alert("Como você vai investir por menos de 6 meses, não podemos lhe oferecer o plano Pro :(")
+        }
+    }
+</script>
+
+</html>

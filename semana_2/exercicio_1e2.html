@@ -1,0 +1,22 @@
+<html>
+    <body>
+    </body>
+
+    <script>
+        // exercicio 1
+        let nome = prompt("Olá. Bem vindo ao Nubanco!\nPara prosseguirmos com seu atendimento, por favor, digite seu nome: ")
+        alert(`Olá ${nome}. Será um prazer atende-lo hoje!`)
+
+
+        // exercicio 2
+        let idade = parseInt(prompt("Para que possamos oferecer um de nossos planos, por favor, digite a sua idade: "))
+
+        if(idade<18) {
+            let anos = 18 - idade
+            alert("Você infelizmente não pode ter acesso a nossos planos, pois é menor de idade    :(")
+            alert(`Mas daqui ${anos} anos, você poderá abrir sua conta, e nós esperaremos ansiosos por esse dia!`)
+        } else {
+            alert(`Tudo certinho ${nome}, vamos prosseguir a partir daqui!`)
+        }
+    </script>
+</html>
