@@ -1,0 +1,294 @@
+<html>
+
+<body>
+</body>
+
+<script>
+    let cliente1 = {
+        nomeCompleto: "",
+        cpf: "", 
+        idade: "", 
+        email: "", 
+        celular: "", 
+        telefone: "", 
+        endereco: "", 
+        cidadeEestado: "", 
+        profissao: "", 
+        salario: 0, 
+        senha: "" 
+    };
+
+    let input;
+
+
+    function cadastro(user) {
+        let finalizado = false;
+
+        while (finalizado == false) {
+
+            while (user.nomeCompleto == "") {
+                input = prompt("Digite seu nome completo.");
+                const verificaNomeCompleto = input.split(" ");
+
+                if (verificaNomeCompleto.length == 1) {
+                    alert("O nome precisa ser completo!");
+                } else if (verificaNomeCompleto.length > 1) {
+                    verificaNomeCompleto.forEach((texto, index) => {
+                        const completo = texto[0].toUpperCase() + texto.substring(1).toLowerCase();
+                        index == 0 ? user.nomeCompleto += `${completo}` : user.nomeCompleto += ` ${completo}`
+                    });
+                }
+            }
+
+            nome = user.nomeCompleto.split(" ")[0];
+
+            while (user.endereco == "") {
+                input = prompt(`${nome}, digite seu endereço, como no exemplo a seguir: R. das Flores, 195, Bairro Tristeza.`);
+                input == "" ? alert("Por favor, digite o endereço!") : user.endereco = input;
+            }
+
+            while (user.cidadeEestado == "") {
+                input = prompt(`${nome}, digite em que cidade e estado reside, como no exemplo a seguir: Porto Alegre - RS.`);
+                input == "" ? alert("Por favor, digite a cidade e estado!") : user.cidadeEestado = input;
+            }
+
+            while (user.profissao == "") {
+                input = prompt(`${nome}, digite a sua profissão.`);
+                input == "" ? alert("Por favor, digite sua profissão!") : user.profissao = input;
+            }
+
+            while (user.salario == 0) {
+                input = parseFloat(prompt(`${nome}, digite o seu salário mensal.`));
+                input == "" ? alert("Por favor, digite seu salário!") : user.salario = input;
+            }
+
+
+            while (user.cpf == "") {
+                input = prompt(`${nome}, digite seu CPF.`);
+                const verificaCpf = Number(input);
+
+                if (isNaN(verificaCpf)) {
+                    alert("Digite apenas numeros, e sem espaços, por favor!");
+                } else if (String(verificaCpf).length < 11 || String(verificaCpf).length > 11) {
+                    alert("CPF inválido, por favor digite novamente!");
+                } else if (String(verificaCpf).length == 11) {
+                    const trataCpf = String(verificaCpf).split("");
+
+                    trataCpf.forEach((numero, index) => {
+                        if (index == 2 || index == 5) {
+                            numero += ".";
+                            itemCpf = numero;
+                        } else if (index == 8) {
+                            numero += "-";
+                            itemCpf = numero;
+                        } else {
+                            itemCpf = numero;
+                        }
+                        user.cpf += itemCpf;
+                    });
+                }
+            }
+
+            /* VALIDAÇÃO E-MAIL
+            2- Verificar e-mail: se contém @ é válido, senão é inválido
+            Se inválido: Ops! Tem certeza que esse e-mail está correto? Tente novamente.  */
+
+            while (user.email == "") {
+                input = prompt(`${nome}, digite seu email.`);
+                const verificaEmail = input;
+
+                verificaEmail.indexOf("@") == -1 ? alert("Seu email precisa conter um @!") : user.email = verificaEmail;
+            }
+
+
+            while (user.celular == "") {
+                input = prompt(`${nome}, digite seu número de celular com o DDD ( OBRIGATÓRIO ) .`);
+                const verificaCelular = Number(input);
+
+                if (isNaN(verificaCelular)) {
+                    alert("Digite apenas numeros, por favor!");
+                } else if (String(verificaCelular).length < 11 || String(verificaCelular).length > 11) {
+                    alert("Número inválido, por favor digite novamente!");
+                } else if (String(verificaCelular).length == 11) {
+                    const trataCelular = String(verificaCelular).split("");
+
+                    trataCelular.forEach((numero, index) => {
+                        if (index == 0) {
+                            itemCelular = "(" + numero;
+                        } else if (index == 1) {
+                            itemCelular = numero + ")";
+                        } else if (index == 6) {
+                            itemCelular = numero + "-";
+                        } else {
+                            itemCelular = numero;
+                        }
+                        user.celular += itemCelular;
+                    });
+
+                    while (user.telefone == "") {
+                        input = prompt(`${nome}, digite seu número de telefone com DDD ( OPCIONAL, envie vazio )`);
+
+                        if (input == "") {
+                            user.telefone = "Não informado";
+                            break;
+                        }
+                        const verificaTelefone = Number(input);
+
+                        if (isNaN(verificaTelefone)) {
+                            alert("Digite apenas numeros, por favor!");
+                        } else if (String(verificaTelefone).length < 10 || String(verificaTelefone).length > 10) {
+                            alert("Número inválido, por favor digite novamente!");
+                        } else if (String(verificaTelefone).length == 10) {
+                            const trataTelefone = String(verificaTelefone).split("");
+
+                            trataTelefone.forEach((numero, index) => {
+                                if (index == 0) {
+                                    itemTelefone = "(" + numero;
+                                } else if (index == 1) {
+                                    itemTelefone = numero + ")";
+                                } else if (index == 5) {
+                                    itemTelefone = numero + "-";
+                                } else {
+                                    itemTelefone = numero;
+                                }
+                                user.telefone += itemTelefone;
+                            });
+                        }
+                    }
+                }
+            }
+
+
+            while (user.idade == 0) {
+                input = prompt(`${nome}, Qual a sua data de nascimento? Siga esse padrão: DD/MM/AAAA.`);
+
+                if (input.indexOf("/") == -1 || input == "" || input.length < 10 || input.length > 10) {
+                    alert("Digite uma data válida, por favor!");
+                } else {
+                    const verificaIdade = input.split("/");
+                    const diaNasc = parseInt(verificaIdade[0]);
+                    const mesNasc = parseInt(verificaIdade[1]);
+                    const anoNasc = parseInt(verificaIdade[2]);
+
+                    const dataNasc = new Date(anoNasc, mesNasc - 1, diaNasc);
+                    const dataAtual = new Date();
+
+                    const idadeEmMiliSeg = dataAtual - dataNasc;
+
+                    const idadeEmAnos = Math.floor(idadeEmMiliSeg / (1000 * 60 * 60 * 24 * 365.2425));
+
+                    if (idadeEmAnos < 18) {
+                        const periodo = 18 - idadeEmAnos;
+                        const textoPeriodo = periodo > 1 ? "anos" : "ano";
+                        alert(`Você ainda não tem idade mínima para abrir um conta em nossa rede, daqui ${periodo} ${textoPeriodo} você podera efetuar seu cadastro.`);
+                        break;
+                    } else {
+                        user.idade = idadeEmAnos;
+                    }
+                }
+            }
+
+
+            while (user.senha == "") {
+                input = prompt(`${nome}, digite uma senha númerica de 4 digitos diferentes.`);
+                const verificaSenha = input.split("").map((num) => {
+                    return Number(num);
+                });
+                let senha = [];
+
+                let repete = true;
+                let sequencia = true;
+                let contador = 0;
+                let contador2 = 0;
+
+                verificaSenha.forEach((numero, index = 0) => {
+                    ;
+
+                    if (index > 0 && numero == verificaSenha[index - 1] || numero == verificaSenha[index + 1] || numero == verificaSenha[index + 2] || numero == verificaSenha[index + 3]) {
+                        contador2++;
+                    }
+                    if (numero - 1 == verificaSenha[index - 1]) {
+                        contador++;
+                    } else if (numero - 1 == verificaSenha[index + 1] || numero - 1 == verificaSenha[verificaSenha.length - 1]) {
+                        contador++;
+                    }
+
+                    senha.push(numero);
+
+                    if (contador2 > 0) {
+                        repete = false;
+                    } else if (contador == 3) {
+                        sequencia = false;
+                    }
+                });
+
+                if (!repete) {
+                    alert("Você não pode inserir números repetidos!");
+                    user.senha = "";
+                } else if (!sequencia) {
+                    alert("Você não pode inserir uma sequencia númerica como senha!");
+                    user.senha = "";
+                } else {
+                    senha.forEach((num) => {
+                        user.senha += String(num);
+                    })
+                }
+            }
+
+
+            
+            confirmaCadastro = false;
+            while (confirmaCadastro == false) {
+                input = prompt(`
+${nome}, aqui estão seus dados informados:
+
+Nome completo: ${user.nomeCompleto}
+Idade: ${user.idade}
+Endereço: ${user.endereco}
+Cidade e Estado: ${user.cidadeEestado}
+Profissão: ${user.profissao}
+Salário: ${user.salario}
+CPF: ${user.cpf}
+Celular: ${user.celular}
+Telefone: ${user.telefone}
+Cidade e Estado: ${user.cidadeEestado}
+E-mail: ${user.email}
+
+Deseja finalizar o cadastro? (s/n)`);
+                resposta = input.toLowerCase();
+
+                if (resposta == "s") {
+                    alert(`Cadastro realizado com sucesso`);
+
+                    if (user.salario > 1000 && user.salario <= 3000) {
+                        limite = (20 * user.salario) / 100;
+                        alert(`Parabéns ${nome}, você desbloqueou um cartão de crédito do TokyoBank com limite de R$${limite}`);
+                    } else if (user.salario > 3000 && user.salario <= 5000) {
+                        limite = (28 * user.salario) / 100;
+                        alert(`Parabéns ${nome}, você desbloqueou um cartão de crédito do TokyoBank com limite de R$${limite}`);
+                    } else if (user.salario > 5000) {
+                        limite = (31 * user.salario) / 100;
+                        alert(`Parabéns ${nome}, você desbloqueou um cartão de crédito do TokyoBank com limite de R$${limite}`);
+                    }
+
+                    confirmaCadastro = true;
+                    finalizado = true
+
+                } else if (resposta == "n") {
+                    alert(`${nome}, as portas estão abertas, sinta-se a vontade.`);
+                    confirmaCadastro = true;
+                    cliente1 = {
+                        nomeCompleto: "", cpf: "", idade: "", email: "", celular: "", telefone: "", endereco: "", cidadeEestado: "", profissao: "",
+                        salario: 0, senha: 0
+                    };
+                    finalizado = true;
+                }
+            }
+
+        }
+    }
+
+    cadastro(cliente1);
+</script>
+
+</html>
